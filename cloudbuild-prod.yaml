@@ -10,9 +10,9 @@ steps:
       - functions
       - deploy
       - graphql
-      - --runtime nodejs12
+      - --runtime=nodejs12
       # Exported function name
-      - --entry-point handler
-      - --source ./dist
+      - --entry-point=handler
+      - --source=./dist
       - --trigger-http
       - --allow-unauthenticated
