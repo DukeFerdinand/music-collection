@@ -21,7 +21,7 @@ const demoResolvers = {
     },
     custom: () => {
       console.log('Custom Query');
-      return 'Hello, Function Framework!';
+      return 'Hello, Google Cloud!';
     },
   },
 };
