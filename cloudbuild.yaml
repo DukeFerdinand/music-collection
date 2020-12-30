@@ -1,0 +1,16 @@
+steps:
+  # GCP provides a default /workspace volume, so don't worry about
+  - name: 'gcr.io/cloud-builders/yarn'
+    args: ['install']
+    dir: 'functions/graphql'
+  - name: 'gcr.io/cloud-builders/yarn'
+    args: ['lint']
+    dir: 'functions/graphql'
+  # ADD THIS BACK IN WHEN YOU ACTUALLY WRITE API TESTS :)
+  # - name: 'gcr.io/cloud-builders/yarn'
+  #   args: ['test']
+  #   dir: 'functions/graphql'
+  # ==================================================
+  - name: 'gcr.io/cloud-builders/yarn'
+    args: ['build']
+    dir: 'functions/graphql'
