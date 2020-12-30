@@ -1,0 +1,9 @@
+overwrite: true
+schema: "localhost:8080"
+# documents: "src/**/*.graphql"
+generates:
+  src/@generated:
+    plugins:
+      - "typescript"
+      - "typescript-resolvers"
+      # - "typescript-react-apollo"
