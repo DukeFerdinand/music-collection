@@ -3,9 +3,15 @@ steps:
     args: ['install']
     dir: 'functions/graphql'
   - name: 'gcr.io/cloud-builders/yarn'
-    args: ['build']
+    args: ['build', '--outDir', '/build-dir/dist']
     dir: 'functions/graphql'
+    volumes:
+      - name: 'build-dir'
+        path: '/build-dir'
   - name: 'gcr.io/cloud-builders/gcloud'
+    volumes:
+      - name: 'build-dir'
+        path: '/build-dir'
     args:
       - functions
       - deploy
@@ -13,6 +19,6 @@ steps:
       - --runtime=nodejs12
       # Exported function name
       - --entry-point=handler
-      - --source=./dist
+      - --source=/build-dir/dist
       - --trigger-http
       - --allow-unauthenticated
