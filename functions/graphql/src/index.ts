@@ -1,7 +1,11 @@
-import { ApolloServer, gql } from "apollo-server-cloud-functions";
+import { ApolloServer, gql } from 'apollo-server-cloud-functions';
+import { mergeResolvers, mergeTypeDefs } from 'graphql-tools';
+
+import { Album } from './api/Album/Album';
+import { User } from './api/User/User';
 
 // Construct a schema, using GraphQL schema language
-const typeDefs = gql`
+const demoDefs = gql`
   type Query {
     hello: String
     custom: String!
@@ -9,12 +13,22 @@ const typeDefs = gql`
 `;
 
 // Provide resolver functions for your schema fields
-const resolvers = {
+const demoResolvers = {
   Query: {
-    hello: () => "Hello world!",
-    custom: () => "Hello, Function Framework!",
+    hello: () => {
+      console.log('Hello Query');
+      return 'Hello world!';
+    },
+    custom: () => {
+      console.log('Custom Query');
+      return 'Hello, Function Framework!';
+    },
   },
 };
+
+const typeDefs = mergeTypeDefs([User, Album, demoDefs]);
+
+const resolvers = mergeResolvers([demoResolvers]);
 
 const server = new ApolloServer({
   typeDefs,
@@ -25,7 +39,7 @@ const server = new ApolloServer({
 
 exports.handler = server.createHandler({
   cors: {
-    origin: "*",
+    origin: '*',
     credentials: true,
   },
 });
