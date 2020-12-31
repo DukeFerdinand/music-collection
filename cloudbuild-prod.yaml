@@ -8,6 +8,11 @@ steps:
     volumes:
       - name: 'build-dir'
         path: '/build-dir'
+  - name: 'bash'
+    args: ['cp package.json /build-dir/dist/']
+    volumes:
+      - name: 'build-dir'
+        path: '/build-dir'
   - name: 'gcr.io/cloud-builders/gcloud'
     volumes:
       - name: 'build-dir'
