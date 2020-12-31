@@ -9,7 +9,7 @@ steps:
       - name: 'build-dir'
         path: '/build-dir'
   - name: 'bash'
-    args: ['cp package.json /build-dir/dist/']
+    args: ['cp', 'package.json', '/build-dir/dist']
     volumes:
       - name: 'build-dir'
         path: '/build-dir'
