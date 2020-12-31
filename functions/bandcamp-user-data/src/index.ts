@@ -8,7 +8,7 @@ interface RequestBody {
   userSlug?: string;
 }
 
-interface RawBandcampUserData {
+export interface RawBandcampUserData {
   name: string;
   following_genres_count: number;
   is_own_page: boolean | null;

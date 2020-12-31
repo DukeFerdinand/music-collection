@@ -9,6 +9,9 @@ steps:
   - name: 'gcr.io/cloud-builders/yarn'
     args: ['test']
     dir: 'functions/bandcamp-user-data'
+    env:
+      - 'BC_TEST_ID=$__BC_TEST_ID_SUB'
+      - 'BC_TEST_USER=$__BC_TEST_USER_SUB'
   - name: 'gcr.io/cloud-builders/yarn'
     args: ['build']
     dir: 'functions/bandcamp-user-data'
