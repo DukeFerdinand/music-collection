@@ -2,15 +2,15 @@ import React from 'react';
 import './App.css';
 import { Providers } from './components/Providers';
 import { Layout } from './components/Layout';
-import { Home } from './components/Home';
+import { Router } from './lib/Router';
 
 function App(): JSX.Element {
   return (
     <Providers>
-      {/* Layout provides top level styles + components */}
-      <Layout>
-        <Home />
-      </Layout>
+      <Router>
+        {/* Layout provides top level styles + components */}
+        <Layout />
+      </Router>
     </Providers>
   );
 }
