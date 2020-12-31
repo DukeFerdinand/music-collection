@@ -1,0 +1,14 @@
+steps:
+  # GCP provides a default /workspace volume, so don't worry about
+  - name: 'gcr.io/cloud-builders/yarn'
+    args: ['install']
+    dir: 'functions/bandcamp-user-data'
+  - name: 'gcr.io/cloud-builders/yarn'
+    args: ['lint']
+    dir: 'functions/bandcamp-user-data'
+  - name: 'gcr.io/cloud-builders/yarn'
+    args: ['test']
+    dir: 'functions/bandcamp-user-data'
+  - name: 'gcr.io/cloud-builders/yarn'
+    args: ['build']
+    dir: 'functions/bandcamp-user-data'
