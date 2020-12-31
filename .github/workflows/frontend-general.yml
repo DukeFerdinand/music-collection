@@ -5,7 +5,7 @@ name: Frontend Full Suite
 
 on:
   push:
-    branches: [master, development]
+    branches: [master]
   pull_request:
     branches: [master, development]
 
