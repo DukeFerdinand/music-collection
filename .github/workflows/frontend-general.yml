@@ -1,0 +1,29 @@
+# This is a general "frontend checker" workflow designed to build, test, and lint before anything gets merged in
+# Also works as a stopper in case any side work (cloud functions?) break anything with the main repo
+
+name: Frontend Full Suite
+
+on:
+  push:
+    branches: [master, development]
+  pull_request:
+    branches: [master, development]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build using Node.js version - ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: yarn
+      - run: yarn lint
+      - run: yarn test
+      - run: yarn build
