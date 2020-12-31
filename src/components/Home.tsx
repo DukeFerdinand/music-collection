@@ -17,8 +17,14 @@ export const Home: React.FC = () => {
           This is a CRA-based app with Google Cloud Functions handling data and
           serving GraphQL. See the example queries below:
         </p>
-        <p>Hello Query: {data ? data.hello : 'Loading...'}</p>
-        <p>Custom Query: {data ? data.custom : 'Loading...'}</p>
+        {loading && <div>Loading...</div>}
+        {data && (
+          <>
+            <p>Hello Query: {data ? data.hello : 'Loading...'}</p>
+            <p>Custom Query: {data ? data.custom : 'Loading...'}</p>
+          </>
+        )}
+        {error && <p>Got an error: {JSON.stringify(error)}</p>}
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
