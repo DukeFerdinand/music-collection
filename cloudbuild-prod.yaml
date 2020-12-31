@@ -10,6 +10,7 @@ steps:
         path: '/build-dir'
   - name: 'bash'
     args: ['cp', 'package.json', '/build-dir/dist']
+    dir: 'functions/graphql'
     volumes:
       - name: 'build-dir'
         path: '/build-dir'
