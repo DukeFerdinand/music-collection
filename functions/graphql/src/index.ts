@@ -33,6 +33,7 @@ const resolvers = mergeResolvers([demoResolvers]);
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  // TODO: Turn this off for prod
   playground: true,
   introspection: true,
 });
@@ -40,6 +41,6 @@ const server = new ApolloServer({
 exports.handler = server.createHandler({
   cors: {
     origin: '*',
-    credentials: true,
+    // credentials: true,
   },
 });

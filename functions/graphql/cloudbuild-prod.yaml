@@ -1,11 +1,7 @@
 steps:
-  - name: 'gcr.io/cloud-builders/yarn'
-    args: ['install']
-    dir: 'functions/graphql'
-  - name: 'gcr.io/cloud-builders/yarn'
-    args: ['build']
-    dir: 'functions/graphql'
+  # Already assumed to be tested at this point, just deploy (function is built automatically)
   - name: 'gcr.io/cloud-builders/gcloud'
+    dir: 'functions/graphql'
     args:
       - functions
       - deploy
@@ -13,6 +9,6 @@ steps:
       - --runtime=nodejs12
       # Exported function name
       - --entry-point=handler
-      - --source=./dist
+      - --source=.
       - --trigger-http
       - --allow-unauthenticated
