@@ -4,7 +4,7 @@ import { Home } from './Home';
 
 export const Layout: React.FC = () => {
   return (
-    <main>
+    <main className="p-5">
       <nav></nav>
       <Switch>
         <Route path="/" exact component={Home} />
