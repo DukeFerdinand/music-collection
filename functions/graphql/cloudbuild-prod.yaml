@@ -1,0 +1,14 @@
+steps:
+  # Already assumed to be tested at this point, just deploy (function is built automatically)
+  - name: 'gcr.io/cloud-builders/gcloud'
+    dir: 'functions/graphql'
+    args:
+      - functions
+      - deploy
+      - graphql
+      - --runtime=nodejs12
+      # Exported function name
+      - --entry-point=handler
+      - --source=.
+      - --trigger-http
+      - --allow-unauthenticated
