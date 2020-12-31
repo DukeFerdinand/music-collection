@@ -9,7 +9,7 @@ steps:
       - name: 'build-dir'
         path: '/build-dir'
   - name: 'bash'
-    args: ['cp', 'package.json', '/build-dir/dist']
+    args: ['cp', 'package.json', '/build-dir']
     dir: 'functions/graphql'
     volumes:
       - name: 'build-dir'
@@ -25,6 +25,6 @@ steps:
       - --runtime=nodejs12
       # Exported function name
       - --entry-point=handler
-      - --source=/build-dir/dist
+      - --source=/build-dir
       - --trigger-http
       - --allow-unauthenticated
