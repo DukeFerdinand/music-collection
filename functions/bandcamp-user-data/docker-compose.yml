@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  bandcamp-scraper:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - 8081:8080
+    volumes:
+      - .:/app
+  bandcamp-scraper-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8081:8080

@@ -1,0 +1,9 @@
+FROM mcr.microsoft.com/playwright:bionic
+
+# Install deps
+WORKDIR /app
+RUN yarn
+
+EXPOSE 8080
+
+CMD ["yarn", "start"]
