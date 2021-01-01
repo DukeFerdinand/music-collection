@@ -1,5 +1,7 @@
 FROM mcr.microsoft.com/playwright:bionic
 
+USER pwuser
+
 # Install deps
 WORKDIR /app
 RUN yarn
