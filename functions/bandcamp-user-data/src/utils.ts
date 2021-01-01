@@ -49,7 +49,7 @@ export interface RawBandcampUserData {
 export const pullBandcampData = async (
   userSlug: RawBandcampUserData['username'],
 ): Promise<RawBandcampUserData | undefined> => {
-  const browser = await playwright.firefox.launch();
+  const browser = await playwright.chromium.launch();
   const context = await browser.newContext();
   const page = await context.newPage();
 
