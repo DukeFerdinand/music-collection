@@ -21,24 +21,30 @@ export const routeHandler: HttpFunction = async (
       message: 'Please add userSlug to either POST body or GET query',
     });
   }
+  try {
+    console.log(
+      '[ Bandcamp User Scraper ] - Spinning up headless browser instance...',
+    );
+    const userData = await pullBandcampData(userSlug);
+    console.log('[ Bandcamp User Scraper ] - Done, checking results...');
 
-  console.log(
-    '[ Bandcamp User Scraper ] - Spinning up headless browser instance...',
-  );
-  const userData = await pullBandcampData(userSlug);
-  console.log('[ Bandcamp User Scraper ] - Done, checking results...');
+    if (!userData) {
+      console.log('[ Bandcamp User Scraper ] - Bad user slug');
+      return res.status(404).json({
+        message: `Unable to retrieve user data for slug ${userSlug}`,
+      });
+    }
 
-  if (!userData) {
-    console.log('[ Bandcamp User Scraper ] - Bad user slug');
-    return res.status(404).json({
-      message: `Unable to retrieve user data for slug ${userSlug}`,
+    console.log('[ Bandcamp User Scraper ] - Data okay! Scrape successful.');
+    return res.status(200).json({
+      data: userData,
+    });
+  } catch (e) {
+    console.log('[ Bandcamp User Scraper ] - 500 Error, check logs');
+    return res.status(500).send({
+      message: e.message || 'Something went wrong',
     });
   }
-
-  console.log('[ Bandcamp User Scraper ] - Data okay! Scrape successful.');
-  return res.status(200).json({
-    data: userData,
-  });
 };
 
 const app = express();
