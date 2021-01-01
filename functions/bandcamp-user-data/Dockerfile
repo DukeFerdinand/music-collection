@@ -4,8 +4,8 @@ WORKDIR /app
 COPY . .
 
 RUN yarn
+RUN yarn add playwright
 RUN yarn build
-RUN node ./node_modules/playwright/install.js
 
 EXPOSE 8080
 
