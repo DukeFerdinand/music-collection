@@ -1,0 +1,14 @@
+steps:
+  # Already assumed to be tested at this point, just deploy (function is built automatically)
+  - name: 'gcr.io/cloud-builders/gcloud'
+    dir: 'functions/bandcamp-user-data'
+    args:
+      - functions
+      - deploy
+      - bandcamp-userdata
+      - --runtime=nodejs12
+      # Exported function name
+      - --entry-point=routeHandler
+      - --source=.
+      - --trigger-http
+      - --allow-unauthenticated
