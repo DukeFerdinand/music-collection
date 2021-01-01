@@ -1,5 +1,6 @@
 import express, { Request, Response } from 'express';
 import { HttpFunction } from '@google-cloud/functions-framework/build/src/functions';
+import { userInfo } from 'os';
 
 import { RequestBody, pullBandcampData } from './utils';
 
@@ -14,6 +15,7 @@ export const routeHandler: HttpFunction = async (
   res: Response,
 ) => {
   console.log('[ Bandcamp User Scraper ]');
+  console.info('[ Script runner info ]', userInfo());
   const userSlug = req.body.userSlug;
 
   if (!userSlug) {
