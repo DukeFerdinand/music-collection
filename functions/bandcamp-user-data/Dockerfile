@@ -1,9 +1,13 @@
 FROM mcr.microsoft.com/playwright:bionic
 
+
+
+WORKDIR /home/pwuser/app
+COPY . .
+RUN chown -R pwuser /home/pwuser/app
+
 USER pwuser
 
-WORKDIR /app
-COPY . .
 
 RUN yarn
 # RUN yarn add playwright
