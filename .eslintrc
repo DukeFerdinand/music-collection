@@ -23,7 +23,7 @@
     "react/prop-types": ["off"],
     "react/react-in-jsx-scope": ["off"],
     "sonarjs/cognitive-complexity": ["error", 5],
-    "max-lines-per-function": ["error", 40],
+    "max-lines-per-function": ["error", 60],
     // "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-unused-vars": "warn"
   }

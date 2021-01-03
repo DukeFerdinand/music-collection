@@ -1403,6 +1403,18 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
+"@dukeferdinand/ts-results@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@dukeferdinand/ts-results/-/ts-results-0.1.1.tgz#d0a1a2910b69ae0da8a8ca5059093a51597f6305"
+  integrity sha512-UmXpKC5h66ikg2OI/wKQ6cuZtYpNXC+85tjPO/q6UPwVJInptuFTXeJ/sdSK4TjkzHa8vTdUgEJevlZHc1Ju4A==
+
+"@dukeferdinand/ts-utils@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@dukeferdinand/ts-utils/-/ts-utils-1.3.1.tgz#e8efc418ef24742f3149194b8d79b6c30077e46f"
+  integrity sha512-A+SVqBxX34UxU8ZluNqKpIFVDOBAAuny6JaH81GA5Ly3RCjysIiYqwYzXfSUbOZJJ4CiZCeW6o8UrOFIbEa6Ug==
+  dependencies:
+    "@dukeferdinand/ts-results" "^0.1.1"
+
 "@endemolshinegroup/cosmiconfig-typescript-loader@3.0.2":
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/@endemolshinegroup/cosmiconfig-typescript-loader/-/cosmiconfig-typescript-loader-3.0.2.tgz#eea4635828dde372838b0909693ebd9aafeec22d"
