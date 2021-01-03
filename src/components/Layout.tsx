@@ -1,5 +1,5 @@
 import { Switch, Route } from 'react-router-dom';
-import { BandcampUtils } from './BandcampUtils';
+import { BandcampUtils } from './Bandcamp/BandcampUtils';
 
 import { Home } from './Home';
 
