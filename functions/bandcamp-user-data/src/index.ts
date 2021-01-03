@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import { HttpFunction } from '@google-cloud/functions-framework/build/src/functions';
 import { userInfo } from 'os';
+import cors from 'cors';
 
 import { RequestBody, pullBandcampData } from './utils';
 
@@ -50,9 +51,22 @@ export const routeHandler: HttpFunction = async (
 };
 
 const app = express();
+
+// Pre-process request body and expose to `req.body`
 app.use(express.json());
 
+// CORS settings
+// TODO: Lock this down to only allow on domains I control
+app.use(cors());
+
 app.post('/', routeHandler);
+
+app.get('/', (req, res) => {
+  console.log('[ Bandcamp Scraper ] => Health Check');
+  res.json({
+    message: 'Bandcamp scraper online',
+  });
+});
 
 app.listen(8080, '0.0.0.0', () => {
   console.info('[ Bandcamp Scraper ] Listening on *:8081');
