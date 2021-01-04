@@ -85,7 +85,12 @@ export const BandcampUserScraper: React.FC<BandcampUserScraperProps> = (
           return false;
         }}
       />
-      {bcUserData && <BCUserCard bcUserData={bcUserData} />}
+      {bcUserData && (
+        <div className="mt-5">
+          <p className="text-lg mb-2 font-bold">Is this you?</p>
+          <BCUserCard bcUserData={bcUserData} />
+        </div>
+      )}
     </div>
   );
 };
